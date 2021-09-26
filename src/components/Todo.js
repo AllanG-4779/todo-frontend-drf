@@ -11,7 +11,7 @@ function Todo() {
 
   useEffect(() => {
     setState(true);
-    fetch("/tasks/todo/").then((response) => {
+    fetch("https://allang-todo.herokuapp.com/tasks/todo/").then((response) => {
       response.json().then((data) => {
         setState(false);
         console.log(data);
@@ -25,11 +25,14 @@ function Todo() {
     e.preventDefault();
     setState(true);
     console.log(task_name);
-    const request = await fetch("/tasks/todo/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ task_name: task_name }),
-    });
+    const request = await fetch(
+      "https://allang-todo.herokuapp.com/tasks/todo/",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ task_name: task_name }),
+      }
+    );
     const response = await request.json();
     setState(false);
     console.log(response);
@@ -38,11 +41,14 @@ function Todo() {
   const editTask = async (e, id) => {
     e.preventDefault();
     setState(true);
-    const request = await fetch(`/tasks/todo/${id}`, {
-      method: "PUT",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ task_name: task_name }),
-    });
+    const request = await fetch(
+      `https://allang-todo.herokuapp.com/tasks/todo/${id}`,
+      {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ task_name: task_name }),
+      }
+    );
     const resp = await request.json();
     console.log(resp);
     setState(false);
@@ -52,9 +58,12 @@ function Todo() {
   const delTask = async (e, id) => {
     e.preventDefault();
     setState(true);
-    const request = await fetch(`/tasks/todo/${id}/`, {
-      method: "DELETE",
-    });
+    const request = await fetch(
+      `https://allang-todo.herokuapp.com/tasks/todo/${id}/`,
+      {
+        method: "DELETE",
+      }
+    );
     const resp = await request.text();
     console.log(resp);
     setState(false);
@@ -131,19 +140,21 @@ function Todo() {
                         id="edit"
                         onClick={() => {
                           setState(true);
-                          fetch(`/tasks/todo/${data.id}/`, {
-                            method: "PUT",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                              task_name: data.task_name,
-                              completed: false,
-                            }),
-                          }).then((complete) => {
+                          fetch(
+                            `https://allang-todo.herokuapp.com/tasks/todo/${data.id}/`,
+                            {
+                              method: "PUT",
+                              headers: { "Content-Type": "application/json" },
+                              body: JSON.stringify({
+                                task_name: data.task_name,
+                                completed: false,
+                              }),
+                            }
+                          ).then((complete) => {
                             complete.json().then((afirm) => {
-                             
                               console.log("Task completed", afirm);
                               window.location.href = "/";
-                               setState(false);
+                              setState(false);
                             });
                           });
                         }}
