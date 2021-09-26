@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Yaldevi:wght@200;300;400;500;600&display=swap");
+body {
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: "Yaldevi", sans-serif;
+}
+#container {
+  max-width: 400px;
+  background-color: white;
+  min-height: 600px;
+  margin: 10px auto;
+  color: green;
+}
+
+#container h3 {
+  color: rgb(54, 148, 54);
+  background-color: rgba(127, 255, 212, 0.247);
+
+  padding: 10px;
+  border-bottom: 0.2px solid rgb(218, 214, 214);
+}
+.items {
+  padding-left: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.items .task-controls {
+  display: flex;
+  flex: 2;
+}
+.items .actions {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+}
+.items .actions p {
+  font-size: 12px;
+  padding: 4px;
+  min-width: 30px;
+  text-align: center;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 20px;
+}
+#edit {
+  color: rgb(0, 128, 75);
+  background-color: rgba(127, 255, 212, 0.685);
+}
+#delete {
+  color: rgb(128, 0, 17);
+  background-color: rgba(255, 131, 127, 0.685);
+}
+.completed {
+  text-decoration: line-through;
+  color: grey;
+}
+.input-task {
+  height: 70px;
+  outline: none;
+  border: none;
+  font-size: large;
+  color: grey;
+}
+.form {
+  border: 1px solid grey;
+  padding: 10px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  border-radius: 5px;
+}
+.form div {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 25px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.button {
+  padding: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.507);
+  width: 60px;
+  text-align: center;
+  border-radius: 2px;
+}
+.add {
+  color: green;
+  background-color: rgba(127, 255, 212, 0.397);
+  font-weight: bolder;
+}
+.cancel {
+  color: rgba(68, 3, 3, 0.849);
+  background-color: rgba(255, 0, 0, 0.151);
+  font-weight: bolder;
+}
