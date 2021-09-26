@@ -90,14 +90,17 @@ function Todo() {
                       checked={data.completed}
                       onChange={() => {
                         setState(true);
-                        fetch(`/tasks/todo/${data.id}/`, {
-                          method: "PUT",
-                          headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify({
-                            task_name: data.task_name,
-                            completed: true,
-                          }),
-                        }).then((complete) => {
+                        fetch(
+                          `https://allang-todo.herokuapp.com/tasks/todo/${data.id}/`,
+                          {
+                            method: "PUT",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                              task_name: data.task_name,
+                              completed: true,
+                            }),
+                          }
+                        ).then((complete) => {
                           complete.json().then((afirm) => {
                             setState(false);
                             console.log("Task completed", afirm);
